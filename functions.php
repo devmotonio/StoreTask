@@ -1,5 +1,5 @@
 <?php
-$pdo = new PDO("mysql:host=localhost;dbname=store", "root", "");
+$pdo = new PDO("mysql:host=us-cdbr-east-03.cleardb.com;dbname=heroku_dd2bf2812835e50", "b75708f4ec2caf", "9982a822");
 $baseUrl = $_SERVER["REQUEST_SCHEME"]."://".$_SERVER["SERVER_NAME"];
 
 $minDate = mktime (0,0,0,2,1,2021);
