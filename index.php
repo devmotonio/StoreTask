@@ -47,9 +47,15 @@ $queryProducts = $pdo->query($sql);
 			<div class="card">
 				<div class="card-header">Generate Data</div>
 				<div class="card-body">
-					<p><a class="btn btn-primary" href="/?action=generateRandomProducts" role="button">Generate products</a></p>
-					<p><a class="btn btn-primary" href="/?action=generateRandomOrders" role="button">Generate orders</a></p>
-					<p><a class="btn btn-primary" href="/?action=generateRandomStock" role="button">Generate stock to all products</a></p>
+					<p>
+						<a class="btn btn-primary btn-block" href="/?action=generateRandomProducts" role="button">Generate products</a>
+					</p>
+					<p>
+						<a class="btn btn-primary btn-block" href="/?action=generateRandomOrders" role="button">Generate orders</a>
+					</p>
+					<p>
+						<a class="btn btn-primary btn-block" href="/?action=generateRandomStock" role="button">Generate stock to all products</a>
+					</p>
 				
 					<h5 class="card-title">Generate stock to a product</h5>
 			
@@ -62,8 +68,11 @@ $queryProducts = $pdo->query($sql);
 							<option value=<?=$product["id"]?>><?=$product["sku"]?></option>
 						<?php endforeach; ?>
 					</select>
+					<button type="submit" class="btn btn-primary mt-1 btn-block">Generate stock</button>
 					</div>
-					<button type="submit" class="btn btn-primary mb-3">Generate stock</button>
+					<p>
+						<a class="btn btn-danger btn-block" href="/?action=reset" role="button">Reset</a>
+					</p>
 				</div>
 			</div>
 			</form>
