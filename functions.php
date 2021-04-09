@@ -1,5 +1,5 @@
 <?php
-include "conn.php";
+$pdo = new PDO("mysql:host=localhost;dbname=store", "root", "");
 $baseUrl = $_SERVER["REQUEST_SCHEME"]."://".$_SERVER["SERVER_NAME"];
 
 $minDate = mktime (0,0,0,2,1,2021);
@@ -100,25 +100,6 @@ function generateRandomProducts($amount)
 			$count += createProduct() ? 1 : 0;
 		}
 	}
-	
-function resetDataBase()
-	{
-		global $pdo;
-		
-		$sql = 'DELETE FROM `orderitems`';
-		$sth = $pdo->prepare($sql);
-		
-		if($sth->execute())
-		{
-			$sql = 'DELETE FROM `orders`';
-			$sth = $pdo->prepare($sql);
-			$sth->execute();
-			
-			$sql = 'DELETE FROM `products`';
-			$sth = $pdo->prepare($sql);
-			$sth->execute();
-		}
-	}
 
 if (isset($_GET["action"]) && $_GET["action"] == "generateRandomProducts")
 {
@@ -137,13 +118,6 @@ if (isset($_GET["action"]) && $_GET["action"] == "generateRandomOrders")
 if (isset($_GET["action"]) && $_GET["action"] == "generateRandomStock")
 {
 	updateStockAll();
-	header('Location: '.$baseUrl);
-	exit;
-}
-
-if (isset($_GET["action"]) && $_GET["action"] == "reset")
-{
-	resetDataBase();
 	header('Location: '.$baseUrl);
 	exit;
 }
