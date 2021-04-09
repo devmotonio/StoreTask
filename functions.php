@@ -69,10 +69,6 @@ function generateRandomOrders($amount)
 		global $pdo;
 		$count = 0;
 		
-		$sql = 'SELECT COUNT(`id`) as `count` FROM `products`';
-		$query = $pdo->query($sql);
-		$amount = $query->fetch()["count"] < $amount ? $query->fetch()["count"] : $amount;
-
 		while($count < $amount)
 		{
 			if(createOrder())
